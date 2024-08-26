@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="12dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="5dp"
+            android:text="ଆପଣଙ୍କର ବିବରଣୀ ଭରନ୍ତୁ"
+            android:textSize="20sp"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="ପୂର୍ଣ୍ଣ ନାମ"
+            android:textSize="18sp" />
+
+        <EditText
+            android:id="@+id/editTextFullName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="ପୂର୍ଣ୍ଣ ନାମ ଭରନ୍ତୁ" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="ଠିକଣା"
+            android:textSize="18sp"
+            android:padding="5dp"/>
+
+        <EditText
+            android:id="@+id/editTextAddress"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="ଠିକଣା ଭରନ୍ତୁ" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="10ମ ବର୍ଷ ସମାପ୍ତ"
+            android:textSize="18sp"
+            android:padding="5dp"/>
+
+        <Spinner
+            android:id="@+id/spinner10thYear"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="3dp"/>
+
+        <Button
+            android:id="@+id/buttonUploadFile_10"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="चित्र या PDF अपलोड करें" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="12ମ ବର୍ଷ ସମାପ୍ତ"
+            android:textSize="18sp"
+            android:padding="5dp"/>
+
+        <Spinner
+            android:id="@+id/spinner12thYear"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="3dp"/>
+
+        <Button
+            android:id="@+id/buttonUploadFile_12"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="चित्र या PDF अपलोड करें" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="12ମ ବିଶେଷଣ"
+            android:textSize="18sp"
+            android:padding="5dp"/>
+
+        <Spinner
+            android:id="@+id/spinner12thSpecialization"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="3dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="ଡିପ୍ଲୋମା ବର୍ଷ"
+            android:textSize="18sp"
+            android:padding="5dp"/>
+
+        <Spinner
+            android:id="@+id/spinnerDiplomaYear"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="3dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="ଡିପ୍ଲୋମା ବିଶେଷଣ"
+            android:textSize="18sp"
+            android:padding="5dp"/>
+
+        <EditText
+            android:id="@+id/editTextDiplomaSpecialization"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="ଡିପ୍ଲୋମା ବିଶେଷଣ ଭରନ୍ତୁ" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="ଅତିରିକ୍ତ କୌଶଳ"
+            android:textSize="18sp"
+            android:padding="5dp"/>
+
+        <EditText
+            android:id="@+id/editTextSkills"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="ଅନ୍ୟ କୌଶଳ ଭରନ୍ତୁ" />
+
+        <Button
+            android:id="@+id/buttonSubmit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:text="ସବମିଟ୍ କରନ୍ତୁ"
+            android:layout_alignParentBottom="true"
+            android:layout_gravity="bottom|end"
+            android:layout_marginEnd="32dp"/>
+
+    </LinearLayout>
+
+</ScrollView>
