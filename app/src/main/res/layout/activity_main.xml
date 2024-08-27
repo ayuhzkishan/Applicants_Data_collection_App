@@ -15,44 +15,52 @@
         android:id="@+id/tvInstruction"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Please choose your language:\nकृपया अपनी भाषा चुनें:\nଦୟାକରି ଆପଣଙ୍କର ଭାଷା ଚୟନ କରନ୍ତୁ:"
+        android:text="Please choose your language:\n\nकृपया अपनी भाषा चुनें:\n\nଦୟାକରି ଆପଣଙ୍କର ଭାଷା ଚୟନ କରନ୍ତୁ:"
         android:textSize="20sp"
         android:textColor="@android:color/black"
         android:textAlignment="center"
-        android:layout_marginBottom="36dp" />
+        android:textStyle="bold"
+        android:layout_marginBottom="36dp"
+        tools:ignore="HardcodedText" />
 
     <Button
         android:id="@+id/button_English"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Click for English"
+        android:textStyle="bold"
         android:textSize="18sp"
         android:padding="16dp"
         android:background="@color/design_default_color_primary"
         android:textColor="@android:color/white"
-        android:layout_marginBottom="28dp" />
+        android:layout_marginBottom="28dp"
+        tools:ignore="HardcodedText,VisualLintButtonSize" />
 
     <Button
         android:id="@+id/button_Hindi"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="हिंदी के लिए क्लिक करें"
+        android:textStyle="bold"
         android:textSize="18sp"
         android:padding="16dp"
         android:background="@color/design_default_color_primary"
         android:textColor="@android:color/white"
-        android:layout_marginBottom="28dp" />
+        android:layout_marginBottom="28dp"
+        tools:ignore="HardcodedText,VisualLintButtonSize" />
 
     <Button
         android:id="@+id/button_Odia"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="ଓଡିଆ ପାଇଁ କ୍ଲିକ୍ କରନ୍ତୁ"
+        android:textStyle="bold"
         android:textSize="18sp"
         android:padding="16dp"
         android:paddingStart="10dp"
         android:paddingEnd="10dp"
         android:background="@color/design_default_color_primary"
-        android:textColor="@android:color/white" />
+        android:textColor="@android:color/white"
+        tools:ignore="HardcodedText,VisualLintButtonSize" />
 
 </LinearLayout>
