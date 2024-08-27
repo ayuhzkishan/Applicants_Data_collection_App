@@ -5,10 +5,12 @@ import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.provider.MediaStore
+import android.view.View
 import android.widget.ArrayAdapter
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Spinner
+import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.database.DatabaseReference
@@ -38,6 +40,9 @@ class OdiaActivity : AppCompatActivity() {
     private var tenthCertificateUri: Uri? = null
     private var twelfthCertificateUri: Uri? = null
 
+    private lateinit var textViewUploadStatus10: TextView
+    private lateinit var textViewUploadStatus12: TextView
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main_odia)
@@ -58,7 +63,10 @@ class OdiaActivity : AppCompatActivity() {
         buttonUploadFile12 = findViewById(R.id.buttonUploadFile_12)
         buttonSubmit = findViewById(R.id.buttonSubmit)
 
-        val years = listOf("N/A") + (2024 downTo 1980).map { it.toString() }
+        textViewUploadStatus10 = findViewById(R.id.textViewUploadStatus10)
+        textViewUploadStatus12 = findViewById(R.id.textViewUploadStatus12)
+
+        val years = listOf("N/A") + (2024 downTo 1990).map { it.toString() }
         val specializations = listOf("N/A", "Arts", "Commerce", "PCM", "PCB")
 
         spinner10thYear.adapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, years)
@@ -83,16 +91,22 @@ class OdiaActivity : AppCompatActivity() {
                 address = editTextAddress.text.toString(),
                 tenthPassingYear = spinner10thYear.selectedItem?.toString(),
                 twelfthPassingYear = spinner12thYear.selectedItem?.toString(),
-                twelfthSpecialisation = spinner12thSpecialization.selectedItem.toString(),
+                twelfthSpecialisation = spinner12thSpecialization.selectedItem?.toString(),
                 diplomaYear = spinnerDiplomaYear.selectedItem?.toString(),
-                diplomaSpecialisation = editTextDiplomaSpecialization.text.toString(),
-                additionalSkills = editTextSkills.text.toString(),
+                diplomaSpecialisation = editTextDiplomaSpecialization.text?.toString(),
+                additionalSkills = editTextSkills.text?.toString(),
                 tenthCertificateUrl = tenthCertificateUri?.toString(),
                 twelfthCertificateUrl = twelfthCertificateUri?.toString()
             )
 
-            database.child("users").child("userId").setValue(user)
-            Toast.makeText(this, "Profile updated successfully!", Toast.LENGTH_SHORT).show()
+            val userId = database.child("users").push().key
+
+            if (userId != null) {
+                database.child("users").child(userId).setValue(user)
+                Toast.makeText(this, "Profile updated successfully!", Toast.LENGTH_SHORT).show()
+            } else {
+                Toast.makeText(this, "Failed to update profile!", Toast.LENGTH_SHORT).show()
+            }
         }
     }
 
@@ -100,30 +114,53 @@ class OdiaActivity : AppCompatActivity() {
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         if (resultCode == Activity.RESULT_OK) {
+            val name = editTextFullName.text.toString() // Get the name here
             when (requestCode) {
                 10 -> {
                     tenthCertificateUri = data?.data
-                    uploadFileToStorage(tenthCertificateUri, "10th_certificate.pdf")
+                    if (tenthCertificateUri != null) {
+                        uploadFileToStorage(tenthCertificateUri, "10th_certificate.pdf", name)
+                    }
                 }
 
                 12 -> {
                     twelfthCertificateUri = data?.data
-                    uploadFileToStorage(twelfthCertificateUri, "12th_certificate.pdf")
+                    if (twelfthCertificateUri != null) {
+                        uploadFileToStorage(twelfthCertificateUri, "12th_certificate.pdf", name)
+                    }
                 }
             }
         }
     }
 
-    private fun uploadFileToStorage(uri: Uri?, fileName: String) {
-        val uploadTask = storageReference.child("users/userId/$fileName").putFile(uri!!)
+    private fun uploadFileToStorage(uri: Uri?, fileType: String, name: String) {
+
+        val fileName = when (fileType) {
+            "10th_certificate.pdf" -> "10th_certificate_${name}.pdf"
+            "12th_certificate.pdf" -> "12th_certificate_${name}.pdf"
+            else -> "unknown_certificate_${name}.pdf"
+        }
+
+        val fileReference = storageReference.child("users/userId/$fileName")
+
+        // Start the upload task
+        val uploadTask = fileReference.putFile(uri!!)
         uploadTask.addOnSuccessListener { taskSnapshot ->
             taskSnapshot.storage.downloadUrl.addOnSuccessListener { uri ->
-                if (fileName == "10th_certificate.pdf") {
-                    tenthCertificateUri = uri
-                } else {
-                    twelfthCertificateUri = uri
+                when (fileType) {
+                    "10th_certificate.pdf" -> {
+                        tenthCertificateUri = uri
+                        textViewUploadStatus10.visibility = View.VISIBLE
+                    }
+
+                    "12th_certificate.pdf" -> {
+                        twelfthCertificateUri = uri
+                        textViewUploadStatus12.visibility = View.VISIBLE
+                    }
                 }
             }
+        }.addOnFailureListener {
+            Toast.makeText(this, "Upload failed. Please try again.", Toast.LENGTH_SHORT).show()
         }
     }
 }
