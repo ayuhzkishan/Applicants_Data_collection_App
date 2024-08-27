@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="12dp">
+    android:padding="12dp"
+    android:scrollbars="none">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -14,21 +16,26 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:padding="5dp"
+            android:layout_gravity="center"
             android:text="ଆପଣଙ୍କର ବିବରଣୀ ଭରନ୍ତୁ"
             android:textSize="20sp"
-            android:textStyle="bold"/>
+            android:textStyle="bold"
+            tools:ignore="HardcodedText" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="ପୂର୍ଣ୍ଣ ନାମ"
-            android:textSize="18sp" />
+            android:textSize="18sp"
+            tools:ignore="HardcodedText" />
 
         <EditText
             android:id="@+id/editTextFullName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="ପୂର୍ଣ୍ଣ ନାମ ଭରନ୍ତୁ" />
+            android:hint="ପୂର୍ଣ୍ଣ ନାମ ଭରନ୍ତୁ"
+            android:minHeight="48dp"
+            tools:ignore="Autofill,HardcodedText,TextFields,VisualLintTextFieldSize" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -36,13 +43,16 @@
             android:layout_marginTop="16dp"
             android:text="ଠିକଣା"
             android:textSize="18sp"
-            android:padding="5dp"/>
+            android:padding="5dp"
+            tools:ignore="HardcodedText" />
 
         <EditText
             android:id="@+id/editTextAddress"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="ଠିକଣା ଭରନ୍ତୁ" />
+            android:hint="ଠିକଣା ଭରନ୍ତୁ"
+            android:minHeight="48dp"
+            tools:ignore="Autofill,HardcodedText,TextFields,TextContrastCheck,VisualLintTextFieldSize" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -50,55 +60,65 @@
             android:layout_marginTop="16dp"
             android:text="10ମ ବର୍ଷ ସମାପ୍ତ"
             android:textSize="18sp"
-            android:padding="5dp"/>
+            android:padding="5dp"
+            tools:ignore="HardcodedText" />
 
         <Spinner
             android:id="@+id/spinner10thYear"
-            android:layout_width="match_parent"
+            android:layout_width="142dp"
             android:layout_height="wrap_content"
-            android:padding="3dp"/>
+            android:minHeight="48dp"
+            android:padding="3dp" />
 
         <Button
             android:id="@+id/buttonUploadFile_10"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:text="चित्र या PDF अपलोड करें" />
+            android:layout_marginTop="12dp"
+            android:textStyle="bold"
+            android:text="ଛବି କିମ୍ବା PDF ଅପଲୋଡ୍ କରନ୍ତୁ"
+            tools:ignore="DuplicateSpeakableTextCheck,HardcodedText" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="24dp"
             android:text="12ମ ବର୍ଷ ସମାପ୍ତ"
             android:textSize="18sp"
-            android:padding="5dp"/>
+            android:padding="5dp"
+            tools:ignore="HardcodedText" />
 
         <Spinner
             android:id="@+id/spinner12thYear"
-            android:layout_width="match_parent"
+            android:layout_width="147dp"
             android:layout_height="wrap_content"
-            android:padding="3dp"/>
+            android:minHeight="48dp"
+            android:padding="3dp" />
 
         <Button
             android:id="@+id/buttonUploadFile_12"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:text="चित्र या PDF अपलोड करें" />
+            android:layout_marginTop="12dp"
+            android:textStyle="bold"
+            android:text="ଛବି କିମ୍ବା PDF ଅପଲୋଡ୍ କରନ୍ତୁ"
+            tools:ignore="HardcodedText" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="24dp"
             android:text="12ମ ବିଶେଷଣ"
             android:textSize="18sp"
-            android:padding="5dp"/>
+            android:padding="5dp"
+            tools:ignore="HardcodedText" />
 
         <Spinner
             android:id="@+id/spinner12thSpecialization"
-            android:layout_width="match_parent"
+            android:layout_width="145dp"
             android:layout_height="wrap_content"
-            android:padding="3dp"/>
+            android:minHeight="48dp"
+            android:padding="3dp" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -106,13 +126,16 @@
             android:layout_marginTop="16dp"
             android:text="ଡିପ୍ଲୋମା ବର୍ଷ"
             android:textSize="18sp"
-            android:padding="5dp"/>
+            android:padding="5dp"
+            tools:ignore="HardcodedText" />
 
         <Spinner
             android:id="@+id/spinnerDiplomaYear"
-            android:layout_width="match_parent"
+            android:layout_width="147dp"
             android:layout_height="wrap_content"
-            android:padding="3dp"/>
+            android:minHeight="48dp"
+            android:padding="3dp"
+            tools:ignore="TouchTargetSizeCheck" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -120,13 +143,16 @@
             android:layout_marginTop="16dp"
             android:text="ଡିପ୍ଲୋମା ବିଶେଷଣ"
             android:textSize="18sp"
-            android:padding="5dp"/>
+            android:padding="5dp"
+            tools:ignore="HardcodedText" />
 
         <EditText
             android:id="@+id/editTextDiplomaSpecialization"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="ଡିପ୍ଲୋମା ବିଶେଷଣ ଭରନ୍ତୁ" />
+            android:hint="ଡିପ୍ଲୋମା ବିଶେଷଣ ଭରନ୍ତୁ"
+            android:minHeight="48dp"
+            tools:ignore="Autofill,HardcodedText,TextFields,TouchTargetSizeCheck,VisualLintTextFieldSize" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -134,13 +160,15 @@
             android:layout_marginTop="16dp"
             android:text="ଅତିରିକ୍ତ କୌଶଳ"
             android:textSize="18sp"
-            android:padding="5dp"/>
+            android:padding="5dp"
+            tools:ignore="HardcodedText" />
 
         <EditText
             android:id="@+id/editTextSkills"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="ଅନ୍ୟ କୌଶଳ ଭରନ୍ତୁ" />
+            android:hint="ଅନ୍ୟ କୌଶଳ ଭରନ୍ତୁ"
+            tools:ignore="Autofill,HardcodedText,TextFields,VisualLintTextFieldSize" />
 
         <Button
             android:id="@+id/buttonSubmit"
@@ -150,7 +178,8 @@
             android:text="ସବମିଟ୍ କରନ୍ତୁ"
             android:layout_alignParentBottom="true"
             android:layout_gravity="bottom|end"
-            android:layout_marginEnd="32dp"/>
+            android:layout_marginEnd="32dp"
+            tools:ignore="HardcodedText,ObsoleteLayoutParam" />
 
     </LinearLayout>
 
