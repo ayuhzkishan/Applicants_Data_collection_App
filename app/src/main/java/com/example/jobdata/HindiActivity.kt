@@ -82,7 +82,7 @@ class HindiActivity : AppCompatActivity() {
             val user = User(
                 fullName = editTextFullName.text.toString(),
                 address = editTextAddress.text.toString(),
-                tenthPassingYear = spinner10thYear.selectedItem?.toString(),
+                tenthPassingYear = spinner10thYear.selectedItem.toString(),
                 twelfthPassingYear = spinner12thYear.selectedItem?.toString(),
                 twelfthSpecialisation = spinner12thSpecialization.selectedItem?.toString(),
                 diplomaSpecialisation = editTextDiplomaSpecialization.text?.toString(),
