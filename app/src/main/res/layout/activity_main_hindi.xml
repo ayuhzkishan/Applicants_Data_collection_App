@@ -91,7 +91,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="24dp"
-            android:text="12वीं पासिंग वर्ष"
+            android:text="12वीं / डिप्लोमा पासिंग वर्ष"
             android:textSize="18sp"
             android:padding="5dp"
             tools:ignore="HardcodedText" />
@@ -99,22 +99,6 @@
         <Spinner
             android:id="@+id/spinner12thYear"
             android:layout_width="136dp"
-            android:layout_height="wrap_content"
-            android:minHeight="48dp"
-            android:padding="3dp" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
-            android:text="12वीं विशेषीकरण"
-            android:textSize="18sp"
-            android:padding="5dp"
-            tools:ignore="HardcodedText" />
-
-        <Spinner
-            android:id="@+id/spinner12thSpecialization"
-            android:layout_width="141dp"
             android:layout_height="wrap_content"
             android:minHeight="48dp"
             android:padding="3dp" />
@@ -139,19 +123,18 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:text="डिप्लोमा वर्ष"
+            android:layout_marginTop="24dp"
+            android:text="12वीं विशेषीकरण"
             android:textSize="18sp"
             android:padding="5dp"
             tools:ignore="HardcodedText" />
 
         <Spinner
-            android:id="@+id/spinnerDiplomaYear"
+            android:id="@+id/spinner12thSpecialization"
             android:layout_width="141dp"
             android:layout_height="wrap_content"
             android:minHeight="48dp"
-            android:padding="3dp"
-            tools:ignore="TouchTargetSizeCheck" />
+            android:padding="3dp" />
 
         <TextView
             android:layout_width="wrap_content"

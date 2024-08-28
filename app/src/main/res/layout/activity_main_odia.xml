@@ -118,11 +118,12 @@
                 tools:ignore="HardcodedText" />
         </LinearLayout>
 
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="24dp"
-            android:text="12ମ ବିଶେଷଣ"
+            android:text="12ମ / ଡିପ୍ଲୋମା ବିଶେଷଣ"
             android:textSize="18sp"
             android:padding="5dp"
             tools:ignore="HardcodedText" />
@@ -133,23 +134,6 @@
             android:layout_height="wrap_content"
             android:minHeight="48dp"
             android:padding="3dp" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:text="ଡିପ୍ଲୋମା ବର୍ଷ"
-            android:textSize="18sp"
-            android:padding="5dp"
-            tools:ignore="HardcodedText" />
-
-        <Spinner
-            android:id="@+id/spinnerDiplomaYear"
-            android:layout_width="147dp"
-            android:layout_height="wrap_content"
-            android:minHeight="48dp"
-            android:padding="3dp"
-            tools:ignore="TouchTargetSizeCheck" />
 
         <TextView
             android:layout_width="wrap_content"
