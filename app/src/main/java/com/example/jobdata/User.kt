@@ -6,7 +6,6 @@ data class User(
     val tenthPassingYear: String?,
     val twelfthPassingYear: String?,
     val twelfthSpecialisation: String?,
-    val diplomaYear: String?,
     val diplomaSpecialisation: String?,
     val additionalSkills: String?,
     val tenthCertificateUrl: String?,
