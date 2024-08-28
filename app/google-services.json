@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "170808414710",
+    "project_id": "form-1ad71",
+    "storage_bucket": "form-1ad71.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:170808414710:android:f93bda37f11b9ebb1537d7",
+        "android_client_info": {
+          "package_name": "com.example.jobdata"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD2j5LclnmWHnxGyI7GT2O4O3wOacd2a3k"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
