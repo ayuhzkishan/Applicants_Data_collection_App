@@ -86,15 +86,6 @@
                 android:textStyle="bold"
                 android:text="Upload Picture or PDF"
                 tools:ignore="DuplicateSpeakableTextCheck,HardcodedText" />
-
-            <TextView
-                android:id="@+id/textViewUploadStatus10"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Upload Successful"
-                android:textColor="@android:color/holo_green_dark"
-                android:visibility="gone"
-                android:padding="5dp" />
         </LinearLayout>
 
 
@@ -130,15 +121,6 @@
                 android:textStyle="bold"
                 android:text="Upload Picture or PDF"
                 tools:ignore="HardcodedText" />
-
-            <TextView
-                android:id="@+id/textViewUploadStatus12"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Upload Successful"
-                android:textColor="@android:color/holo_green_dark"
-                android:visibility="gone"
-                android:padding="5dp" />
         </LinearLayout>
 
 
@@ -173,7 +155,8 @@
             android:layout_width="160dp"
             android:layout_height="wrap_content"
             android:minHeight="48dp"
-            android:padding="3dp" />
+            android:padding="3dp"
+            tools:ignore="TouchTargetSizeCheck" />
 
         <TextView
             android:layout_width="wrap_content"
