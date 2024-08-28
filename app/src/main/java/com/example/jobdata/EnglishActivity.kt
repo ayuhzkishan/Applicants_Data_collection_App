@@ -2,12 +2,12 @@
 
 package com.example.jobdata
 
+import android.annotation.SuppressLint
 import android.app.Activity
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.provider.MediaStore
-import android.view.View
 import android.widget.ArrayAdapter
 import android.widget.Button
 import android.widget.EditText
@@ -41,9 +41,6 @@ class EnglishActivity : AppCompatActivity() {
     private var tenthCertificateUri: Uri? = null
     private var twelfthCertificateUri: Uri? = null
 
-    private lateinit var textViewUploadStatus10: TextView
-    private lateinit var textViewUploadStatus12: TextView
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main_english)
@@ -64,8 +61,6 @@ class EnglishActivity : AppCompatActivity() {
         buttonUploadFile12 = findViewById(R.id.buttonUploadFile_12)
         buttonSubmit = findViewById(R.id.buttonSubmit)
 
-        textViewUploadStatus10 = findViewById(R.id.textViewUploadStatus10)
-        textViewUploadStatus12 = findViewById(R.id.textViewUploadStatus12)
 
         val years = listOf("N/A") + (2024 downTo 1990).map { it.toString() }
         val specializations = listOf("N/A", "Arts", "Commerce", "PCM", "PCB")
@@ -85,7 +80,6 @@ class EnglishActivity : AppCompatActivity() {
             val intent = Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI)
             startActivityForResult(intent, 12)
         }
-
         buttonSubmit.setOnClickListener {
             val user = User(
                 fullName = editTextFullName.text.toString(),
@@ -99,10 +93,7 @@ class EnglishActivity : AppCompatActivity() {
                 tenthCertificateUrl = tenthCertificateUri?.toString(),
                 twelfthCertificateUrl = twelfthCertificateUri?.toString()
             )
-
-            // Generate a unique key for each user entry
             val userId = database.child("users").push().key
-
             if (userId != null) {
                 database.child("users").child(userId).setValue(user)
                 Toast.makeText(this, "Profile updated successfully!", Toast.LENGTH_SHORT).show()
@@ -135,14 +126,14 @@ class EnglishActivity : AppCompatActivity() {
         }
     }
 
+    @SuppressLint("SetTextI18n")
     private fun uploadFileToStorage(uri: Uri?, fileType: String, name: String) {
         val fileName = when (fileType) {
             "10th_certificate.pdf" -> "10th_certificate_${name}.pdf"
             "12th_certificate.pdf" -> "12th_certificate_${name}.pdf"
             else -> "unknown_certificate_${name}.pdf"
         }
-
-        val fileReference = storageReference.child("users/userId/$fileName")
+        val fileReference = storageReference.child("users/$name/$fileName")
 
         val uploadTask = fileReference.putFile(uri!!)
         uploadTask.addOnSuccessListener { taskSnapshot ->
@@ -150,12 +141,14 @@ class EnglishActivity : AppCompatActivity() {
                 when (fileType) {
                     "10th_certificate.pdf" -> {
                         tenthCertificateUri = uri
-                        textViewUploadStatus10.visibility = View.VISIBLE
+                        buttonUploadFile10.text = "Uploaded"
+                        buttonUploadFile10.setOnClickListener { buttonUploadFile10.backgroundTintList= getColorStateList(android.R.color.holo_green_light) }
                     }
 
                     "12th_certificate.pdf" -> {
                         twelfthCertificateUri = uri
-                        textViewUploadStatus12.visibility = View.VISIBLE
+                        buttonUploadFile12.text = "Uploaded"
+                        buttonUploadFile12.setOnClickListener { buttonUploadFile12.backgroundTintList= getColorStateList(android.R.color.holo_green_light) }
                     }
                 }
             }

@@ -1,16 +1,15 @@
 package com.example.jobdata
 
+import android.annotation.SuppressLint
 import android.app.Activity
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.provider.MediaStore
-import android.view.View
 import android.widget.ArrayAdapter
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Spinner
-import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.database.DatabaseReference
@@ -40,8 +39,6 @@ class OdiaActivity : AppCompatActivity() {
     private var tenthCertificateUri: Uri? = null
     private var twelfthCertificateUri: Uri? = null
 
-    private lateinit var textViewUploadStatus10: TextView
-    private lateinit var textViewUploadStatus12: TextView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -63,8 +60,6 @@ class OdiaActivity : AppCompatActivity() {
         buttonUploadFile12 = findViewById(R.id.buttonUploadFile_12)
         buttonSubmit = findViewById(R.id.buttonSubmit)
 
-        textViewUploadStatus10 = findViewById(R.id.textViewUploadStatus10)
-        textViewUploadStatus12 = findViewById(R.id.textViewUploadStatus12)
 
         val years = listOf("N/A") + (2024 downTo 1990).map { it.toString() }
         val specializations = listOf("N/A", "Arts", "Commerce", "PCM", "PCB")
@@ -133,6 +128,7 @@ class OdiaActivity : AppCompatActivity() {
         }
     }
 
+    @SuppressLint("SetTextI18n")
     private fun uploadFileToStorage(uri: Uri?, fileType: String, name: String) {
 
         val fileName = when (fileType) {
@@ -141,7 +137,7 @@ class OdiaActivity : AppCompatActivity() {
             else -> "unknown_certificate_${name}.pdf"
         }
 
-        val fileReference = storageReference.child("users/userId/$fileName")
+        val fileReference = storageReference.child("users/$name/$fileName")
 
         // Start the upload task
         val uploadTask = fileReference.putFile(uri!!)
@@ -150,12 +146,14 @@ class OdiaActivity : AppCompatActivity() {
                 when (fileType) {
                     "10th_certificate.pdf" -> {
                         tenthCertificateUri = uri
-                        textViewUploadStatus10.visibility = View.VISIBLE
+                        buttonUploadFile10.text = "ଅପଲୋଡ୍ ସଫଳ"
+                        buttonUploadFile10.setOnClickListener { buttonUploadFile10.backgroundTintList= getColorStateList(android.R.color.holo_green_light) }
                     }
 
                     "12th_certificate.pdf" -> {
                         twelfthCertificateUri = uri
-                        textViewUploadStatus12.visibility = View.VISIBLE
+                        buttonUploadFile12.text = "ଅପଲୋଡ୍ ସଫଳ"
+                        buttonUploadFile12.setOnClickListener { buttonUploadFile12.backgroundTintList= getColorStateList(android.R.color.holo_green_light) }
                     }
                 }
             }
