@@ -70,14 +70,30 @@
             android:minHeight="48dp"
             android:padding="3dp" />
 
-        <Button
-            android:id="@+id/buttonUploadFile_10"
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-            android:textStyle="bold"
-            android:text="ଛବି କିମ୍ବା PDF ଅପଲୋଡ୍ କରନ୍ତୁ"
-            tools:ignore="DuplicateSpeakableTextCheck,HardcodedText" />
+            android:orientation="horizontal"
+            android:layout_marginTop="6dp">
+
+            <Button
+                android:id="@+id/buttonUploadFile_10"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:textStyle="bold"
+                android:text="ଛବି କିମ୍ବା PDF ଅପଲୋଡ୍ କରନ୍ତୁ"
+                tools:ignore="DuplicateSpeakableTextCheck,HardcodedText" />
+
+            <TextView
+                android:id="@+id/textViewUploadStatus10"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="ଅପଲୋଡ୍ ସଫଳ"
+                android:textColor="@android:color/holo_green_dark"
+                android:visibility="gone"
+                android:padding="5dp" />
+        </LinearLayout>
 
         <TextView
             android:layout_width="wrap_content"
@@ -95,14 +111,30 @@
             android:minHeight="48dp"
             android:padding="3dp" />
 
-        <Button
-            android:id="@+id/buttonUploadFile_12"
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-            android:textStyle="bold"
-            android:text="ଛବି କିମ୍ବା PDF ଅପଲୋଡ୍ କରନ୍ତୁ"
-            tools:ignore="HardcodedText" />
+            android:orientation="horizontal"
+            android:layout_marginTop="6dp">
+
+            <Button
+                android:id="@+id/buttonUploadFile_12"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:textStyle="bold"
+                android:text="ଛବି କିମ୍ବା PDF ଅପଲୋଡ୍ କରନ୍ତୁ"
+                tools:ignore="HardcodedText" />
+
+            <TextView
+                android:id="@+id/textViewUploadStatus12"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="ଅପଲୋଡ୍ ସଫଳ"
+                android:textColor="@android:color/holo_green_dark"
+                android:visibility="gone"
+                android:padding="5dp" />
+        </LinearLayout>
 
         <TextView
             android:layout_width="wrap_content"
