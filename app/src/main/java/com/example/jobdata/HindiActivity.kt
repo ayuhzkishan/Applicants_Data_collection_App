@@ -99,6 +99,7 @@ class HindiActivity : AppCompatActivity() {
             } else {
                 Toast.makeText(this, "Failed to update profile!", Toast.LENGTH_SHORT).show()
             }
+            cleardata()
         }
     }
 
@@ -160,5 +161,20 @@ class HindiActivity : AppCompatActivity() {
             Toast.makeText(this, "Upload failed. Please try again.", Toast.LENGTH_SHORT).show()
         }
     }
-
+    @SuppressLint("SetTextI18n")
+    private fun cleardata() {
+        editTextFullName.text.clear()
+        editTextAddress.text.clear()
+        spinner10thYear.setSelection(0)
+        spinner12thYear.setSelection(0)
+        spinner12thSpecialization.setSelection(0)
+        editTextDiplomaSpecialization.text.clear()
+        editTextSkills.text.clear()
+        buttonUploadFile10.text = "Upload Picture or PDF"
+        buttonUploadFile10.backgroundTintList = getColorStateList(android.R.color.holo_blue_light)
+        buttonUploadFile12.text = "Upload Picture or PDF"
+        buttonUploadFile12.backgroundTintList = getColorStateList(android.R.color.holo_blue_light)
+        tenthCertificateUri = null
+        twelfthCertificateUri = null
+    }
 }

@@ -68,13 +68,13 @@ class EnglishActivity : AppCompatActivity() {
 
         buttonUploadFile10.setOnClickListener {
             val intent = Intent(Intent.ACTION_GET_CONTENT)
-            intent.type="image/*,application/pdf"
+            intent.type = "image/*,application/pdf"
             startActivityForResult(intent, 10)
         }
 
         buttonUploadFile12.setOnClickListener {
             val intent = Intent(Intent.ACTION_GET_CONTENT)
-            intent.type="image/*,application/pdf"
+            intent.type = "image/*,application/pdf"
             startActivityForResult(intent, 12)
         }
         buttonSubmit.setOnClickListener {
@@ -96,6 +96,7 @@ class EnglishActivity : AppCompatActivity() {
             } else {
                 Toast.makeText(this, "Failed to update profile!", Toast.LENGTH_SHORT).show()
             }
+            cleardata()
         }
     }
 
@@ -104,13 +105,14 @@ class EnglishActivity : AppCompatActivity() {
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         if (resultCode == Activity.RESULT_OK) {
-            val name = editTextFullName.text.toString() 
+            val name = editTextFullName.text.toString()
             when (requestCode) {
                 10 -> {
                     tenthCertificateUri = data?.data
                     if (tenthCertificateUri != null) {
-                        buttonUploadFile10.text = "Uploaded"
-                        buttonUploadFile10.backgroundTintList= getColorStateList(android.R.color.holo_green_light)
+                        buttonUploadFile10.text = "Upload Successful"
+                        buttonUploadFile10.backgroundTintList =
+                            getColorStateList(android.R.color.holo_green_light)
                         uploadFileToStorage(tenthCertificateUri, "10th_certificate.pdf", name)
                     }
                 }
@@ -118,8 +120,9 @@ class EnglishActivity : AppCompatActivity() {
                 12 -> {
                     twelfthCertificateUri = data?.data
                     if (twelfthCertificateUri != null) {
-                        buttonUploadFile12.text = "Uploaded"
-                        buttonUploadFile12.backgroundTintList= getColorStateList(android.R.color.holo_green_light)
+                        buttonUploadFile12.text = "Upload Successful"
+                        buttonUploadFile12.backgroundTintList =
+                            getColorStateList(android.R.color.holo_green_light)
                         uploadFileToStorage(twelfthCertificateUri, "12th_certificate.pdf", name)
                     }
                 }
@@ -151,6 +154,22 @@ class EnglishActivity : AppCompatActivity() {
         }.addOnFailureListener {
             Toast.makeText(this, "Upload failed. Please try again.", Toast.LENGTH_SHORT).show()
         }
+    }
 
+    @SuppressLint("SetTextI18n")
+    private fun cleardata() {
+        editTextFullName.text.clear()
+        editTextAddress.text.clear()
+        spinner10thYear.setSelection(0)
+        spinner12thYear.setSelection(0)
+        spinner12thSpecialization.setSelection(0)
+        editTextDiplomaSpecialization.text.clear()
+        editTextSkills.text.clear()
+        buttonUploadFile10.text = "Upload Picture or PDF"
+        buttonUploadFile10.backgroundTintList = getColorStateList(android.R.color.holo_blue_light)
+        buttonUploadFile12.text = "Upload Picture or PDF"
+        buttonUploadFile12.backgroundTintList = getColorStateList(android.R.color.holo_blue_light)
+        tenthCertificateUri = null
+        twelfthCertificateUri = null
     }
 }
