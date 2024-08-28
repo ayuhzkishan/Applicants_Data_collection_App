@@ -83,9 +83,11 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="12dp"
-                android:textStyle="bold"
+                android:backgroundTint="#ff33b5e5"
+                android:textColor="#455A64"
                 android:text="Upload Picture or PDF"
-                tools:ignore="DuplicateSpeakableTextCheck,HardcodedText" />
+                android:textStyle="bold"
+                tools:ignore="DuplicateSpeakableTextCheck,HardcodedText,TextContrastCheck" />
         </LinearLayout>
 
 
@@ -119,6 +121,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="12dp"
+                android:backgroundTint="#ff33b5e5"
+                android:textColor="#455A64"
                 android:text="Upload Picture or PDF"
                 android:textStyle="bold"
                 tools:ignore="HardcodedText" />

@@ -81,7 +81,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="12dp"
+                android:textColor="#455A64"
                 android:textStyle="bold"
+                android:backgroundTint="#ff33b5e5"
                 android:text="चित्र या PDF अपलोड करें"
                 tools:ignore="DuplicateSpeakableTextCheck,HardcodedText" />
 
@@ -113,6 +115,8 @@
                 android:id="@+id/buttonUploadFile_12"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:backgroundTint="#ff33b5e5"
+                android:textColor="#455A64"
                 android:layout_marginTop="12dp"
                 android:textStyle="bold"
                 android:text="चित्र या PDF अपलोड करें"
