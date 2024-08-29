@@ -5,12 +5,16 @@ import android.app.Activity
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
+import android.view.View
 import android.widget.ArrayAdapter
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Spinner
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.airbnb.lottie.LottieAnimationView
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.storage.FirebaseStorage
@@ -92,7 +96,7 @@ class HindiActivity : AppCompatActivity() {
             buttonUploadFile12.text = "Upload Picture or PDF"
             buttonUploadFile12.backgroundTintList = getColorStateList(android.R.color.holo_blue_light)
         }
-var count=0
+
         buttonSubmit.setOnClickListener {
             val user = User(
                 fullName = editTextFullName.text.toString(),
@@ -111,15 +115,25 @@ var count=0
             if (userId != null) {
                 database.child("users").child(userId).setValue(user)
                 Toast.makeText(this, "Profile updated successfully!", Toast.LENGTH_SHORT).show()
+
+                val animationView = findViewById<LottieAnimationView>(R.id.activity_splash)
+                animationView?.apply {
+                    visibility = View.VISIBLE
+                    playAnimation()
+                    Handler(Looper.getMainLooper()).postAtTime({
+                        val intent = Intent(this@HindiActivity, SplashActivity::class.java)
+                        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_SINGLE_TOP)
+                        startActivity(intent)
+                        finish()
+                    }, animationView.duration)
+                }
+
             } else {
                 Toast.makeText(this, "Failed to update profile!", Toast.LENGTH_SHORT).show()
             }
             buttonSubmit.isEnabled = false
             buttonSubmit.postDelayed({ buttonSubmit.isEnabled = true }, 5000)
             cleardata()
-            count++
-            if (count==5)
-                redirectToPage(MainActivity::class.java)
         }
     }
 
@@ -215,9 +229,5 @@ var count=0
         buttonUploadFile12.backgroundTintList = getColorStateList(android.R.color.holo_blue_light)
         tenthCertificateUri = null
         twelfthCertificateUri = null
-    }
-    private fun redirectToPage(activityClass: Class<*>) {
-        val intent = Intent(this, activityClass)
-        startActivity(intent)
     }
 }

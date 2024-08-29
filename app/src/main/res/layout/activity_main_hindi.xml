@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
@@ -25,7 +26,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="पूरा नाम"
+            android:text="पूरा नाम *"
             android:textSize="18sp"
             android:padding="5dp"
             tools:ignore="HardcodedText" />
@@ -41,7 +42,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            android:text="पता"
+            android:text="पता *"
             android:textSize="18sp"
             android:padding="5dp"
             tools:ignore="HardcodedText" />
@@ -57,7 +58,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            android:text="10वीं पासिंग वर्ष"
+            android:text="10वीं पासिंग वर्ष *"
             android:textSize="18sp"
             android:padding="5dp"
             tools:ignore="HardcodedText" />
@@ -206,6 +207,19 @@
             android:layout_marginEnd="32dp"
             android:text="जमा करें"
             tools:ignore="HardcodedText,ObsoleteLayoutParam,TouchTargetSizeCheck" />
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/activity_splash"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:lottie_rawRes="@raw/paytmanimation"
+            android:visibility="gone"
+            app:lottie_autoPlay="true"
+            app:lottie_loop="false" />
 
     </LinearLayout>
 
