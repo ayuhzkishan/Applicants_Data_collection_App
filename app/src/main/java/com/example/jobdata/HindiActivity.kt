@@ -5,12 +5,16 @@ import android.app.Activity
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
+import android.view.View
 import android.widget.ArrayAdapter
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Spinner
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.airbnb.lottie.LottieAnimationView
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.storage.FirebaseStorage
@@ -96,11 +100,26 @@ class HindiActivity : AppCompatActivity() {
             if (userId != null) {
                 database.child("users").child(userId).setValue(user)
                 Toast.makeText(this, "Profile updated successfully!", Toast.LENGTH_SHORT).show()
+
+
+
+                val animationView = findViewById<LottieAnimationView>(R.id.activity_splash)
+                animationView?.apply {
+                    visibility = View.VISIBLE
+                    playAnimation()
+                    Handler(Looper.getMainLooper()).postDelayed({
+
+                        val intent = Intent(this@HindiActivity, SplashActivity::class.java)
+                        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_SINGLE_TOP)
+                        startActivity(intent)
+                        finish()
+                    }, animationView.duration.toLong())
+                }
             } else {
                 Toast.makeText(this, "Failed to update profile!", Toast.LENGTH_SHORT).show()
             }
-            cleardata()
         }
+        cleardata()
     }
 
     @SuppressLint("SetTextI18n")

@@ -10,7 +10,7 @@ android {
 
     defaultConfig {
         applicationId = "com.example.jobdata"
-        minSdk = 29
+        minSdk = 26
         //noinspection OldTargetApi
         targetSdk = 34
         versionCode = 1
@@ -54,4 +54,5 @@ dependencies {
     testImplementation(libs.junit.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
+    implementation (libs.lottie)
 }

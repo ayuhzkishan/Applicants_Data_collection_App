@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:padding="12dp"
     android:scrollbars="none">
@@ -182,6 +183,19 @@
             android:layout_gravity="bottom|end"
             android:layout_marginEnd="32dp"
             tools:ignore="HardcodedText,ObsoleteLayoutParam" />
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/activity_splash"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:lottie_rawRes="@raw/paytmanimation"
+            android:visibility="gone"
+            app:lottie_autoPlay="true"
+            app:lottie_loop="false" />
 
     </LinearLayout>
 
