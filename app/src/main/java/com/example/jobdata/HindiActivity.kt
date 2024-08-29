@@ -33,12 +33,15 @@ class HindiActivity : AppCompatActivity() {
     private lateinit var buttonUploadFile10: Button
     private lateinit var buttonUploadFile12: Button
     private lateinit var buttonSubmit: Button
+    private lateinit var buttondelete: Button
+    private lateinit var buttondelete1: Button
 
     private var tenthCertificateUri: Uri? = null
     private var twelfthCertificateUri: Uri? = null
 
 
 
+    @SuppressLint("SetTextI18n")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main_hindi)
@@ -57,6 +60,8 @@ class HindiActivity : AppCompatActivity() {
         buttonUploadFile10 = findViewById(R.id.buttonUploadFile_10)
         buttonUploadFile12 = findViewById(R.id.buttonUploadFile_12)
         buttonSubmit = findViewById(R.id.buttonSubmit)
+        buttondelete = findViewById(R.id.buttonDelete)
+        buttondelete1 = findViewById(R.id.buttonDelete1)
 
         val years = listOf("N/A") + (2024 downTo 1990).map { it.toString() }
         val specializations = listOf("N/A", "Arts", "Commerce", "PCM", "PCB")
@@ -68,16 +73,26 @@ class HindiActivity : AppCompatActivity() {
 
         buttonUploadFile10.setOnClickListener {
             val intent = Intent(Intent.ACTION_GET_CONTENT)
-            intent.type="image/*,application/pdf"
+            intent.type="*/*"
             startActivityForResult(intent, 10)
         }
 
         buttonUploadFile12.setOnClickListener {
             val intent = Intent(Intent.ACTION_GET_CONTENT)
-            intent.type="image/*,application/pdf"
+            intent.type="*/*"
             startActivityForResult(intent, 12)
         }
 
+        buttondelete.setOnClickListener {
+            buttonUploadFile10.text = "Upload Picture or PDF"
+            buttonUploadFile10.backgroundTintList = getColorStateList(android.R.color.holo_blue_light)
+        }
+
+        buttondelete1.setOnClickListener {
+            buttonUploadFile12.text = "Upload Picture or PDF"
+            buttonUploadFile12.backgroundTintList = getColorStateList(android.R.color.holo_blue_light)
+        }
+var count=0
         buttonSubmit.setOnClickListener {
             val user = User(
                 fullName = editTextFullName.text.toString(),
@@ -99,7 +114,12 @@ class HindiActivity : AppCompatActivity() {
             } else {
                 Toast.makeText(this, "Failed to update profile!", Toast.LENGTH_SHORT).show()
             }
+            buttonSubmit.isEnabled = false
+            buttonSubmit.postDelayed({ buttonSubmit.isEnabled = true }, 5000)
             cleardata()
+            count++
+            if (count==5)
+                redirectToPage(MainActivity::class.java)
         }
     }
 
@@ -161,6 +181,25 @@ class HindiActivity : AppCompatActivity() {
             Toast.makeText(this, "Upload failed. Please try again.", Toast.LENGTH_SHORT).show()
         }
     }
+
+    @Deprecated("This method has been deprecated in favor of using the\n      {@link OnBackPressedDispatcher} via {@link #getOnBackPressedDispatcher()}.\n      The OnBackPressedDispatcher controls how back button events are dispatched\n      to one or more {@link OnBackPressedCallback} objects.")
+    override fun onBackPressed() {
+        super.onBackPressed()
+        deleteFileFromStorage("10th_certificate.pdf", editTextFullName.text.toString())
+        deleteFileFromStorage("12th_certificate.pdf", editTextFullName.text.toString())
+    }
+
+    private fun deleteFileFromStorage(fileType: String, name: String) {
+        val fileName = when (fileType) {
+            "10th_certificate.pdf" -> "10th_certificate_${name}.pdf"
+            "12th_certificate.pdf" -> "12th_certificate_${name}.pdf"
+            else -> "unknown_certificate_${name}.pdf"
+        }
+        val fileReference = storageReference.child("users/$name/$fileName")
+        fileReference.delete().addOnSuccessListener {
+        }
+    }
+
     @SuppressLint("SetTextI18n")
     private fun cleardata() {
         editTextFullName.text.clear()
@@ -176,5 +215,9 @@ class HindiActivity : AppCompatActivity() {
         buttonUploadFile12.backgroundTintList = getColorStateList(android.R.color.holo_blue_light)
         tenthCertificateUri = null
         twelfthCertificateUri = null
+    }
+    private fun redirectToPage(activityClass: Class<*>) {
+        val intent = Intent(this, activityClass)
+        startActivity(intent)
     }
 }

@@ -68,9 +68,9 @@
             android:id="@+id/spinner10thYear"
             android:layout_width="155dp"
             android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
             android:minHeight="48dp"
-            android:padding="3dp"
-            android:layout_marginEnd="8dp" />
+            android:padding="3dp" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -87,7 +87,20 @@
                 android:textColor="#455A64"
                 android:text="Upload Picture or PDF"
                 android:textStyle="bold"
-                tools:ignore="DuplicateSpeakableTextCheck,HardcodedText,TextContrastCheck" />
+                tools:ignore="ButtonStyle,DuplicateSpeakableTextCheck,HardcodedText,TextContrastCheck" />
+
+            <Button
+                android:id="@+id/buttonDelete"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:layout_marginStart="40dp"
+                android:backgroundTint="#F44336"
+                android:text="Delete file"
+                android:textColor="#FFFFFF"
+                android:textStyle="bold"
+                tools:ignore="ButtonStyle,DuplicateSpeakableTextCheck,HardcodedText,TextContrastCheck" />
+
         </LinearLayout>
 
 
@@ -125,7 +138,20 @@
                 android:textColor="#455A64"
                 android:text="Upload Picture or PDF"
                 android:textStyle="bold"
-                tools:ignore="HardcodedText" />
+                tools:ignore="ButtonStyle,HardcodedText" />
+
+            <Button
+                android:id="@+id/buttonDelete1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:layout_marginStart="40dp"
+                android:backgroundTint="#F44336"
+                android:text="Delete file"
+                android:textColor="#FFFFFF"
+                android:textStyle="bold"
+                tools:ignore="ButtonStyle,DuplicateSpeakableTextCheck,HardcodedText,TextContrastCheck" />
+
         </LinearLayout>
 
         <TextView

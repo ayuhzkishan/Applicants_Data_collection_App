@@ -81,11 +81,23 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="12dp"
-                android:textColor="#455A64"
-                android:textStyle="bold"
                 android:backgroundTint="#ff33b5e5"
                 android:text="चित्र या PDF अपलोड करें"
-                tools:ignore="DuplicateSpeakableTextCheck,HardcodedText" />
+                android:textColor="#455A64"
+                android:textStyle="bold"
+                tools:ignore="ButtonStyle,DuplicateSpeakableTextCheck,HardcodedText,TouchTargetSizeCheck" />
+
+            <Button
+                android:id="@+id/buttonDelete"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:layout_marginStart="40dp"
+                android:backgroundTint="#F44336"
+                android:text="फ़ाइल नष्ट करें"
+                android:textColor="#FFFFFF"
+                android:textStyle="bold"
+                tools:ignore="ButtonStyle,DuplicateSpeakableTextCheck,HardcodedText,TextContrastCheck" />
 
         </LinearLayout>
 
@@ -115,12 +127,24 @@
                 android:id="@+id/buttonUploadFile_12"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:backgroundTint="#ff33b5e5"
-                android:textColor="#455A64"
                 android:layout_marginTop="12dp"
-                android:textStyle="bold"
+                android:backgroundTint="#ff33b5e5"
                 android:text="चित्र या PDF अपलोड करें"
-                tools:ignore="HardcodedText" />
+                android:textColor="#455A64"
+                android:textStyle="bold"
+                tools:ignore="ButtonStyle,HardcodedText,TouchTargetSizeCheck" />
+
+            <Button
+                android:id="@+id/buttonDelete1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:layout_marginStart="40dp"
+                android:backgroundTint="#F44336"
+                android:text="फ़ाइल नष्ट करें"
+                android:textColor="#FFFFFF"
+                android:textStyle="bold"
+                tools:ignore="ButtonStyle,DuplicateSpeakableTextCheck,HardcodedText,TextContrastCheck" />
 
         </LinearLayout>
 
